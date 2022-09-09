@@ -11,7 +11,7 @@ struct AnimationView: View {
         ZStack {
             backgroundColor.edgesIgnoringSafeArea(.all)
             
-            VStack(spacing: 50) {
+            VStack(spacing: 10) {
                 
                 Button("Press for Animation"){
                     withAnimation(Animation.default) {
@@ -19,7 +19,11 @@ struct AnimationView: View {
                     }
                 }.foregroundColor(.white).padding().background(.red).cornerRadius(20)
                 
-                RoundedRectangle(cornerRadius: isAnimating ? 50 : 25).frame(width: isAnimating ? 200 : 0, height: 200).animation(.spring(), value: isAnimating).rotationEffect(Angle(degrees: isAnimating ? 360 : 0)).foregroundColor(isAnimating ? .orange : .blue)
+                RoundedRectangle(cornerRadius: isAnimating ? 50 : 25)
+                .frame(width: isAnimating ? 200 : 0, height: 200)
+                .animation(.spring(), value: isAnimating)
+                .rotationEffect(Angle(degrees: isAnimating ? 360 : 0))
+                .foregroundColor(isAnimating ? .orange : .blue)
                                         
             }
         }
